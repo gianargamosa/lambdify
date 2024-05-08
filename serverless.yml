@@ -1,0 +1,15 @@
+service: function-with-environment-variables
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  createUser:
+    handler: sample/handler.createUser
+    events:
+      - http:
+          path: /test/original
+          method: POST
