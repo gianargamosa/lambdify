@@ -1,9 +1,6 @@
 ---
 
-- Creates documentation for any exported entity
-- Combines JSDoc + TypeScript annotations
-- Includes parameters, return types, descriptions, and even example blocks
-
+- Creates service for lambda function
 ## Installation
 
 ```sh
@@ -13,24 +10,6 @@ yarn add lambdify
 ```
 
 ## Usage
-
-Simply run `lambdify` and it will pick up all the typescript files in your `src` folder and generate docs.
-
-```json
-{
-  "scripts": {
-    "generate-docs": "lambdify"
-  }
-}
-```
-
-And insert this block of code somewhere in your `README.md`:
-
-```md
-<!-- INSERT GENERATED DOCS START -->
-
-<!-- INSERT GENERATED DOCS END -->
-```
 
 ### Help
 
@@ -52,71 +31,6 @@ Simply provide a glob to `lambdify` and it will also generate docs for those fil
   }
 }
 ```
-
-### Node API
-
-You can use `lambdify` as a normal node package too!
-This gives you finer grain control of where your docs are inserted!
-
-<!-- lambdify-GENERATED START -->
-
-#### `generateMarkdown` (function)
-
-Generate the markdown docs a doc returned from `getAllDocs`
-
-**Parameters:**
-
-- doc (`TypeScriptDocument`) - The TypeScript document to generate types for
-- headerDepth (`number`)
-
-**returns:** string
-
-#### `getAllDocs` (function)
-
-Get the docs for all some files in the project.
-
-**Parameters:**
-
-- pattern (`string | string[]`) - A glob pattern or patterns to match files from
-
-**returns:** Promise<TypeScriptDocument[]>
-
-#### `createMatcher` (function)
-
-Create a markdown comment matcher. This matches the section where
-we will insert docs. Use this to create a custom section.
-
-**Parameters:**
-
-- name (`string`) - The name to use in the markdown comment
-
-**returns:** RegExp
-
-#### `GenerateOptions` (interface)
-
-**Members:**
-
-- matcher (`RegExp`) - A regex to match the part of the readme
-- pattern (`string | string[]`) - A glob pattern or patterns to match files from
-- headerDepth (`number`) - How deep the markdown headers should be
-
-#### `generate` (function)
-
-Generate all the docs and put it in the README.
-
-**Parameters:**
-
-- options (`GenerateOptions`) - Options for generating the docs
-
-**returns:** Promise<void>
-
-```tsx
-import generate, { createMatcher } from 'lambdify';
-
-generate({ matcher: createMatcher('lambdify-GENERATED') });
-```
-
-<!-- lambdify-GENERATED END -->
 
 ## Contributing
 
