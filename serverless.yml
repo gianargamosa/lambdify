@@ -8,8 +8,15 @@ provider:
 
 functions:
   createUser:
-    handler: sample/handler.createUser
+    handler: dist/sample/handler.createUser
     events:
       - http:
           path: /test/original
           method: POST
+    package:
+      patterns:
+        # - "!./**"
+        - 'dist/sample/index.js'
+        - 'package.json'
+        - 'package-lock.json'
+        - 'node_modules/**/*'

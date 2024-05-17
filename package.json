@@ -4,13 +4,22 @@
   "description": "Lambda wrapper for serverless application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "type": "module",
   "author": "Arman Gian Argamosa",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^8.12.0",
+    "ajv": "^8.13.0",
     "ajv-errors": "^3.0.0"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.5"
   }
 }
